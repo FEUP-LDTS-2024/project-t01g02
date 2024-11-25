@@ -22,12 +22,12 @@ public class Game {
     private final Screen screen;
     private final CityModel city;
     private final CityViewer cityViewer;
-    private CharacterViewer characterViewer;
+    //private CharacterViewer characterViewer;
 
     //private final Controller controller;
 
     public Game() throws IOException, FontFormatException, URISyntaxException {
-        this.city = new CityModel(500, 250); //320/200
+        this.city = new CityModel(400, 200); //320/200
 
         URL resource = getClass().getClassLoader().getResource("fonts/square.ttf");
         if (resource == null) {
@@ -54,11 +54,11 @@ public class Game {
         //screen.doResizeIfNecessary(); // resize screen if necessary
 
         this.cityViewer = new CityViewer(city, screen); // initializa o viewer
-        this.characterViewer = new CharacterViewer(screen);
+        //this.characterViewer = new CharacterViewer(screen);
         //this.controller = new Controller(screen, city, viewer);
 
         city.initializeRoads();
-        characterViewer.initializeCharacters();
+        //characterViewer.initializeCharacters();
 
 
     }
@@ -67,7 +67,7 @@ public class Game {
 
         while (true) {
             cityViewer.draw();
-            characterViewer.draw();
+            //characterViewer.draw();
 
             KeyStroke key = screen.readInput();
             if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q' || key.getKeyType() == KeyType.EOF) {
